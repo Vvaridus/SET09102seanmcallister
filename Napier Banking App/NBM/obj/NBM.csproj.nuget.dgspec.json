@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vv\\Desktop\\Napier Banking App\\NBM\\NBM.csproj": {}
+    "D:\\SeaChainUnity\\SeaChainU\\SET09102seanmcallister\\Napier Banking App\\NBM\\NBM.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vv\\Desktop\\Napier Banking App\\NBM\\NBM.csproj": {
+    "D:\\SeaChainUnity\\SeaChainU\\SET09102seanmcallister\\Napier Banking App\\NBM\\NBM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vv\\Desktop\\Napier Banking App\\NBM\\NBM.csproj",
+        "projectUniqueName": "D:\\SeaChainUnity\\SeaChainU\\SET09102seanmcallister\\Napier Banking App\\NBM\\NBM.csproj",
         "projectName": "NBM",
-        "projectPath": "C:\\Users\\Vv\\Desktop\\Napier Banking App\\NBM\\NBM.csproj",
+        "projectPath": "D:\\SeaChainUnity\\SeaChainU\\SET09102seanmcallister\\Napier Banking App\\NBM\\NBM.csproj",
         "packagesPath": "C:\\Users\\Vv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vv\\Desktop\\Napier Banking App\\NBM\\obj\\",
+        "outputPath": "D:\\SeaChainUnity\\SeaChainU\\SET09102seanmcallister\\Napier Banking App\\NBM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vv\\AppData\\Roaming\\NuGet\\NuGet.Config",

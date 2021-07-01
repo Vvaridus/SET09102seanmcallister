@@ -14,7 +14,7 @@ namespace NBM
             string pattern = @"(((http|ftp|https):\/\/)?[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:\/~\+#]*[\w\-\@?^=%&amp;\/~\+#])?)";
             string ret = Regex.Replace(originalUrl, pattern, replaceWithWord, regexOptions);
 
-            
+            //test for upload
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             //search the text for URLs and write them to a Quarentine List.txt
             foreach (Match item in Regex.Matches(originalUrl, @"(((http|ftp|https):\/\/)?[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:\/~\+#]*[\w\-\@?^=%&amp;\/~\+#])?)"))
