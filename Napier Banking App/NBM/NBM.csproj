@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Email.png" />
+    <None Remove="sms.png" />
+    <None Remove="Twitter.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\Email.png" />
+    <Resource Include="images\sms.png" />
+    <Resource Include="images\Twitter.png" />
+  </ItemGroup>
+
+</Project>
