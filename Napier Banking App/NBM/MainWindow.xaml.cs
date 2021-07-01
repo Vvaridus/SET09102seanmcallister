@@ -28,10 +28,13 @@ namespace NBM
         List<string> listA = new List<string>();
         List<string> listB = new List<string>();
 
+
+
         public MainWindow()
         {
             InitializeComponent();
             getTextWords();
+
         }
 
         private void textBoxCharCount_TextChanged(object sender, TextChangedEventArgs e)
@@ -71,31 +74,46 @@ namespace NBM
                             availableSMS.Visibility = Visibility.Visible;
                             availableEmail.Visibility = Visibility.Hidden;
                             availableTwitter.Visibility = Visibility.Hidden;
+                            textBoxSubject.Visibility = Visibility.Hidden;
+                            textBlockSubject.Visibility = Visibility.Hidden;
                             textBoxMessageBody.MaxLength = 140;
                             textBoxMessageBody.Clear();
+                            textBoxSubject.Clear();
+                            textBoxSender.Clear();
                             break;
 
                         case "E":
                             availableSMS.Visibility = Visibility.Hidden;
                             availableEmail.Visibility = Visibility.Visible;
                             availableTwitter.Visibility = Visibility.Hidden;
+                            textBoxSubject.Visibility = Visibility.Visible;
+                            textBlockSubject.Visibility = Visibility.Visible;
                             textBoxMessageBody.MaxLength = 1028;
                             textBoxMessageBody.Clear();
+                            textBoxSender.Clear();
                             break;
 
                         case "T":
                             availableSMS.Visibility = Visibility.Hidden;
                             availableEmail.Visibility = Visibility.Hidden;
                             availableTwitter.Visibility = Visibility.Visible;
+                            textBoxSubject.Visibility = Visibility.Hidden;
+                            textBlockSubject.Visibility = Visibility.Hidden;
                             textBoxMessageBody.MaxLength = 140;
                             textBoxMessageBody.Clear();
+                            textBoxSubject.Clear();
+                            textBoxSender.Clear();
                             break;
                         default:
                             availableSMS.Visibility = Visibility.Hidden;
                             availableEmail.Visibility = Visibility.Hidden;
                             availableTwitter.Visibility = Visibility.Hidden;
+                            textBoxSubject.Visibility = Visibility.Hidden;
+                            textBlockSubject.Visibility = Visibility.Hidden;
                             textBoxMessageBody.MaxLength = 1028;
                             textBoxMessageBody.Clear();
+                            textBoxSubject.Clear();
+                            textBoxSender.Clear();
                             break;
                     }
                 }
@@ -105,6 +123,8 @@ namespace NBM
                 availableSMS.Visibility = Visibility.Visible;
                 availableEmail.Visibility = Visibility.Visible;
                 availableTwitter.Visibility = Visibility.Visible;
+                textBoxSubject.Visibility = Visibility.Hidden;
+                textBlockSubject.Visibility = Visibility.Hidden;
                 textBoxMessageBody.MaxLength = 1028;
             }
 

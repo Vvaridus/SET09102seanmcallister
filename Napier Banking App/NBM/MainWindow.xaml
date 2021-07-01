@@ -18,6 +18,11 @@
                 <DropShadowEffect/>
             </TextBox.Effect>
         </TextBox>
+        <TextBox x:Name="textBoxSubject" Visibility="Hidden" HorizontalAlignment="Left" Margin="420,120,0,0" Text="" TextWrapping="NoWrap" VerticalAlignment="Top" Width="180" Height="26" BorderBrush="#FFE72E49" SelectionBrush="#FFA5B9C9" Background="Gainsboro" Foreground="Black" MaxLength="20">
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+        </TextBox>
         <TextBox x:Name="textBoxMessageBody" HorizontalAlignment="Left" Margin="120,180,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="480" Height="460" BorderBrush="#FFE72E49" SelectionBrush="#FFA5B9C9" Background="Gainsboro" Foreground="Black" AcceptsReturn="True" MaxLength="1028" TextChanged="textBoxMessageBody_TextChanged">
             <TextBox.Effect>
                 <DropShadowEffect/>
@@ -25,6 +30,7 @@
         </TextBox>
         <TextBlock x:Name="textBlockHeader" HorizontalAlignment="Left" Margin="120,40,0,0" Text="Header: " TextWrapping="NoWrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlockSender" HorizontalAlignment="Left" Margin="120,100,0,0" Text="Sender: " TextWrapping="NoWrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockSubject" Visibility="Hidden" HorizontalAlignment="Left" Margin="420,100,0,0" Text="Subject: " TextWrapping="NoWrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlockBody" HorizontalAlignment="Left" Margin="120,160,0,0" Text="Body: " TextWrapping="NoWrap" VerticalAlignment="Top"/>
 
         <TextBlock x:Name="textBlockCharCount" HorizontalAlignment="Left" Margin="120,650,0,0" Text="Remaining Chars: " TextWrapping="NoWrap" VerticalAlignment="Top" Width="94" IsEnabled="False"/>
