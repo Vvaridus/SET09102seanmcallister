@@ -218,29 +218,29 @@ namespace NBM
                 }
             }
         }
-
+        
         public void createSirList()
         {
             var text = textBoxMessageBody.Text;
-            var regex = new Regex(@"SIR(?:[^\.]|\.(?=\d))*\.");
+            var regex = new Regex(@"Nature of Incident:(?:[^\.]|\.(?=\d))*\.");
             var regex2 = new Regex(@"Sort Code:(?:[^\.]|\.(?=\d))*\.");
-            var matches = regex.Matches(text);
-            var matches2 = regex2.Matches(text);
+            var matchesSortCode = regex2.Matches(text);
+            var matchesNature = regex.Matches(text);            
 
-            foreach (var match in matches)
+            foreach (var sortCode in matchesSortCode)
             {
                 string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 using (StreamWriter outputfile = new StreamWriter(System.IO.Path.Combine(docPath, "zzSIRList.txt"), true))
                 {
-                    outputfile.WriteLine(match);
+                    outputfile.WriteLine("\n"+sortCode);
                 }
             }
-            foreach (var match2 in matches2)
+            foreach (var nature in matchesNature)
             {
                 string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 using (StreamWriter outputfile = new StreamWriter(System.IO.Path.Combine(docPath, "zzSIRList.txt"), true))
                 {
-                    outputfile.WriteLine(match2);
+                    outputfile.WriteLine(nature);
                 }
             }
         }
