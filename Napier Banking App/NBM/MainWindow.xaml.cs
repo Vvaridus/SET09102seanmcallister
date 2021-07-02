@@ -45,8 +45,6 @@ namespace NBM
         {
             InitializeComponent();
             getTextWords();
-
-
         }
 
         private void textBoxCharCount_TextChanged(object sender, TextChangedEventArgs e)
@@ -160,7 +158,7 @@ namespace NBM
                     var values = line.Split(',');
                     
                     listA.Add(values[0]);
-                    listB.Add(values[1]);                    
+                    listB.Add(values[1]);
                 }
             }
         }
@@ -168,8 +166,7 @@ namespace NBM
         //Test checks for URLs and text speak on Click
         private void buttonTest_Click(object sender, RoutedEventArgs e)
         {
-            //export to JSON
-            jsonExport(textBoxHeader.Text, textBoxSender.Text, textBoxSubject.Text, textBoxMessageBody.Text);
+            
             //itterate through listA and replace text speak abreviations with the abriviation and the expanded text of what the abreviation means.
             for (int i = 0; i < listA.Count; i++)
             {
@@ -178,6 +175,12 @@ namespace NBM
             //replace all URLs found in text with URL Quarentined.
             textBoxMessageBody.Text = QuarentineURLs.replaceURLWords(textBoxMessageBody.Text, " <URL Quarentined>", textBoxHeader.Text, textBoxSender.Text);
             
+            isTrending();
+            createSirList();
+
+            //export to JSON
+            jsonExport(textBoxHeader.Text, textBoxSender.Text, textBoxSubject.Text, textBoxMessageBody.Text);
+
         }
 
         public static void jsonExport(string header, string sender, string subject, string mainBodyText)
@@ -197,6 +200,48 @@ namespace NBM
             using (StreamWriter outputfile = new StreamWriter(System.IO.Path.Combine(docPath, "zzJsonFileExport.json"), true))
             {
                 outputfile.WriteLine(jsonString);
+            }
+        }
+
+        public void isTrending()
+        {
+            var text = textBoxMessageBody.Text;
+            var regex = new Regex(@"#\w+");
+            var matches = regex.Matches(text);
+
+            foreach (var match in matches)
+            {
+                string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                using (StreamWriter outputfile = new StreamWriter(System.IO.Path.Combine(docPath, "zzTrendingExport.txt"), true))
+                {
+                    outputfile.WriteLine(match);
+                }
+            }
+        }
+
+        public void createSirList()
+        {
+            var text = textBoxMessageBody.Text;
+            var regex = new Regex(@"SIR(?:[^\.]|\.(?=\d))*\.");
+            var regex2 = new Regex(@"Sort Code:(?:[^\.]|\.(?=\d))*\.");
+            var matches = regex.Matches(text);
+            var matches2 = regex2.Matches(text);
+
+            foreach (var match in matches)
+            {
+                string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                using (StreamWriter outputfile = new StreamWriter(System.IO.Path.Combine(docPath, "zzSIRList.txt"), true))
+                {
+                    outputfile.WriteLine(match);
+                }
+            }
+            foreach (var match2 in matches2)
+            {
+                string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                using (StreamWriter outputfile = new StreamWriter(System.IO.Path.Combine(docPath, "zzSIRList.txt"), true))
+                {
+                    outputfile.WriteLine(match2);
+                }
             }
         }
     }
