@@ -14,12 +14,23 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Text.Json;
 
 namespace NBM
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+    public class JsonExport
+    {
+        public DateTimeOffset DateTime { get; set; }
+        public string Header { get; set; }
+        public string Sender { get; set; }
+        public string Subject { get; set; }
+        public string MainBodyText { get; set; }
+    }
+
     public partial class MainWindow : Window
     {
         string filePath = @"C:\Users\Vv\Desktop\Napier Banking App\NBM\files\textwords.csv";
@@ -34,6 +45,7 @@ namespace NBM
         {
             InitializeComponent();
             getTextWords();
+
 
         }
 
@@ -156,6 +168,8 @@ namespace NBM
         //Test checks for URLs and text speak on Click
         private void buttonTest_Click(object sender, RoutedEventArgs e)
         {
+            //export to JSON
+            jsonExport(textBoxHeader.Text, textBoxSender.Text, textBoxSubject.Text, textBoxMessageBody.Text);
             //itterate through listA and replace text speak abreviations with the abriviation and the expanded text of what the abreviation means.
             for (int i = 0; i < listA.Count; i++)
             {
@@ -163,6 +177,27 @@ namespace NBM
             }
             //replace all URLs found in text with URL Quarentined.
             textBoxMessageBody.Text = QuarentineURLs.replaceURLWords(textBoxMessageBody.Text, " <URL Quarentined>", textBoxHeader.Text, textBoxSender.Text);
+            
+        }
+
+        public static void jsonExport(string header, string sender, string subject, string mainBodyText)
+        {
+            var export = new JsonExport
+            {
+                DateTime = DateTime.Now,
+                Header = header,
+                Sender = sender,
+                Subject = subject,
+                MainBodyText = mainBodyText
+            };
+
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonString = JsonSerializer.Serialize(export, options);
+            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            using (StreamWriter outputfile = new StreamWriter(System.IO.Path.Combine(docPath, "zzJsonFileExport.json"), true))
+            {
+                outputfile.WriteLine(jsonString);
+            }
         }
     }
 }
