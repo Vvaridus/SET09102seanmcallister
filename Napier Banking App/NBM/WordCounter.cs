@@ -9,10 +9,10 @@ namespace NBM
         public string word { get; set; }
         public int frequency { get; set; }
 
-        //public WordCounter(string word, int frequency)
-        //{
-        //    this.word = word;
-        //    this.frequency = frequency;
-        //}
+        public WordCounter(string word, int frequency)
+        {
+            this.word = word;
+            this.frequency = frequency;
+        }
     }
 }

@@ -72,9 +72,9 @@
         
         <ListView x:Name="listViewTrending" Width="220" Height="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="921,114,0,0" SelectionChanged="listViewTrending_SelectionChanged">
             <ListView.View>
-                <GridView>
-                    <GridViewColumn x:Name="gridTrendingWord" Header="Word" Width="140" DisplayMemberBinding="{Binding Word}"/>
-                    <GridViewColumn x:Name="gridTrendingCount" Header="Count" Width="80" DisplayMemberBinding="{Binding Count}"/>
+                <GridView x:Name="gridViewTrending">
+                    <GridViewColumn Header="Word" Width="140"/>
+                    <GridViewColumn Header="Count" Width="80"/>
                 </GridView>
             </ListView.View>
         </ListView>

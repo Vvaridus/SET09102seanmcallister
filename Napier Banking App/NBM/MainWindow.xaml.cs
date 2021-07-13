@@ -38,7 +38,7 @@ namespace NBM
         StreamReader reader = null;
         List<string> listA = new List<string>();
         List<string> listB = new List<string>();
-        
+        List<WordCounter> wordCounters = new List<WordCounter>();
 
         public MainWindow()
         {
@@ -208,14 +208,14 @@ namespace NBM
             var text = textBoxMessageBody.Text;
             var regex = new Regex(@"#\w+");
             var matches = regex.Matches(text);
-            List<WordCounter> wordCounters = new List<WordCounter>();
+            
 
             foreach (var match in matches)
             {
-                WordCounter foundWord = wordCounters.Find(x => x.word == match);
+                WordCounter foundWord = wordCounters.Find(x => x.word == match.ToString());
                 if (foundWord == null)
                 {
-                    wordCounters.Add(new WordCounter());
+                    wordCounters.Add(new WordCounter(match.ToString(), 1));
                 }
                 else
                 {
@@ -226,13 +226,23 @@ namespace NBM
                 using (StreamWriter outputfile = new StreamWriter(System.IO.Path.Combine(docPath, "zzTrendingExport.txt"), true))
                 {
                     outputfile.WriteLine(match);
+                    
                 }
             }
-            //HERE WIP
+
+            twitterTrendingCount();
+        }
+
+        public void twitterTrendingCount()
+        {
+            listViewTrending.Items.Clear();
+
             foreach (WordCounter word in wordCounters)
             {
-                //String[] rowItems = new string[] { word.word, word.frequency.ToString() };
-                //listViewTrending.Items.Add(new ListViewItem(rowItems));
+                
+                String[] rowItems = new string[] { word.word, word.frequency.ToString() };
+                listViewTrending.Items.Add(rowItems[0]);
+                listViewTrending.Items.Add(rowItems[1]);
             }
         }
         
