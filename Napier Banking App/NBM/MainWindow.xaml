@@ -69,6 +69,17 @@
         <Button x:Name="buttonTwo" Content="Button Two" HorizontalAlignment="Left" Margin="290,690,0,0" VerticalAlignment="Top" Height="48" Width="140"/>
         <Button x:Name="buttonThree" Content="Button Three" HorizontalAlignment="Left" Margin="460,690,0,0" VerticalAlignment="Top" Height="48" Width="140"/>
         <Button x:Name="buttonTest" Content="Test" HorizontalAlignment="Left" Margin="843,680,0,0" VerticalAlignment="Top" Height="54" Width="156" Click="buttonTest_Click"/>
+        
+        <ListView x:Name="listViewTrending" Width="220" Height="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="921,114,0,0" SelectionChanged="listViewTrending_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="gridTrendingWord" Header="Word" Width="140" DisplayMemberBinding="{Binding Word}"/>
+                    <GridViewColumn x:Name="gridTrendingCount" Header="Count" Width="80" DisplayMemberBinding="{Binding Count}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
 
 
     </Grid>

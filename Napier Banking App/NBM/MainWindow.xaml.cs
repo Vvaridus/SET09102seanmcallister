@@ -38,13 +38,12 @@ namespace NBM
         StreamReader reader = null;
         List<string> listA = new List<string>();
         List<string> listB = new List<string>();
-
-
+        
 
         public MainWindow()
         {
             InitializeComponent();
-            getTextWords();
+            getTextWords();            
         }
 
         private void textBoxCharCount_TextChanged(object sender, TextChangedEventArgs e)
@@ -203,19 +202,37 @@ namespace NBM
             }
         }
 
+        //twitter trnding list
         public void isTrending()
         {
             var text = textBoxMessageBody.Text;
             var regex = new Regex(@"#\w+");
             var matches = regex.Matches(text);
+            List<WordCounter> wordCounters = new List<WordCounter>();
 
             foreach (var match in matches)
             {
+                WordCounter foundWord = wordCounters.Find(x => x.word == match);
+                if (foundWord == null)
+                {
+                    wordCounters.Add(new WordCounter());
+                }
+                else
+                {
+                    foundWord.frequency++;
+                }
+
                 string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 using (StreamWriter outputfile = new StreamWriter(System.IO.Path.Combine(docPath, "zzTrendingExport.txt"), true))
                 {
                     outputfile.WriteLine(match);
                 }
+            }
+            //HERE WIP
+            foreach (WordCounter word in wordCounters)
+            {
+                //String[] rowItems = new string[] { word.word, word.frequency.ToString() };
+                //listViewTrending.Items.Add(new ListViewItem(rowItems));
             }
         }
         
@@ -243,6 +260,11 @@ namespace NBM
                     outputfile.WriteLine(nature);
                 }
             }
+        }
+
+        private void listViewTrending_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
