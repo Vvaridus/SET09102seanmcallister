@@ -37,28 +37,28 @@
         <TextBox x:Name="textBoxCharCount" HorizontalAlignment="Left" Margin="220,650,0,0" Text="1028" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBoxCharCount_TextChanged"/>
 
 
-        <Rectangle HorizontalAlignment="Left" Height="580" Margin="680,60,0,0" Stroke="#FFE72E49" VerticalAlignment="Top" Width="480" StrokeThickness="3">
+        <Rectangle HorizontalAlignment="Left" Height="580" Margin="680,60,0,0" Stroke="#FFE72E49" VerticalAlignment="Top" Width="565" StrokeThickness="3">
             <Rectangle.Effect>
                 <DropShadowEffect/>
             </Rectangle.Effect>
         </Rectangle>
-        <TextBlock x:Name="textBlockSMS" HorizontalAlignment="Left" Margin="740,120,0,0" Text="SMS: " TextWrapping="NoWrap" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlockEmail" HorizontalAlignment="Left" Margin="740,280,0,0" Text="Email: " TextWrapping="NoWrap" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlockTwitter" HorizontalAlignment="Left" Margin="740,440,0,0" Text="Twitter: " TextWrapping="NoWrap" VerticalAlignment="Top"/>
-        <Image x:Name="imageSMS" HorizontalAlignment="Left" Height="139" Margin="777,136,0,0" VerticalAlignment="Top" Width="133" Source="/images/sms.png"/>
-        <Rectangle x:Name="availableSMS" HorizontalAlignment="Left" Height="126" Margin="780,140,0,0" Stroke="#FF4BB225" VerticalAlignment="Top" Width="126" StrokeThickness="2">
+        <TextBlock x:Name="textBlockSMS" HorizontalAlignment="Left" Margin="700,120,0,0" Text="SMS: " TextWrapping="NoWrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockEmail" HorizontalAlignment="Left" Margin="700,280,0,0" Text="Email: " TextWrapping="NoWrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockTwitter" HorizontalAlignment="Left" Margin="700,446,0,0" Text="Twitter: " TextWrapping="NoWrap" VerticalAlignment="Top"/>
+        <Image x:Name="imageSMS" HorizontalAlignment="Left" Height="138" Margin="726,140,0,0" VerticalAlignment="Top" Width="133" Source="/images/sms.png"/>
+        <Rectangle x:Name="availableSMS" HorizontalAlignment="Left" Height="126" Margin="726,143,0,0" Stroke="#FF4BB225" VerticalAlignment="Top" Width="126" StrokeThickness="2">
             <Rectangle.Effect>
                 <DropShadowEffect/>
             </Rectangle.Effect>
         </Rectangle>
-        <Image x:Name="imageEmail" HorizontalAlignment="Left" Height="155" Margin="726,301,0,0" VerticalAlignment="Top" Width="235" Source="/images/Email.png"/>
-        <Rectangle x:Name="availableEmail" HorizontalAlignment="Left" Height="126" Margin="780,301,0,0" Stroke="#FF4BB225" VerticalAlignment="Top" Width="126" StrokeThickness="2">
+        <Image x:Name="imageEmail" HorizontalAlignment="Left" Height="155" Margin="704,317,0,0" VerticalAlignment="Top" Width="178" Source="/images/Email.png"/>
+        <Rectangle x:Name="availableEmail" HorizontalAlignment="Left" Height="126" Margin="726,301,0,0" Stroke="#FF4BB225" VerticalAlignment="Top" Width="126" StrokeThickness="2">
             <Rectangle.Effect>
                 <DropShadowEffect/>
             </Rectangle.Effect>
         </Rectangle>
-        <Image x:Name="imageTwitter" HorizontalAlignment="Left" Height="126" Margin="780,474,0,0" VerticalAlignment="Top" Width="132" Source="/images/Twitter.png"/>
-        <Rectangle x:Name="availableTwitter" HorizontalAlignment="Left" Height="126" Margin="780,474,0,0" Stroke="#FF4BB225" VerticalAlignment="Top" Width="126" StrokeThickness="2">
+        <Image x:Name="imageTwitter" HorizontalAlignment="Left" Height="126" Margin="726,488,0,0" VerticalAlignment="Top" Width="132" Source="/images/Twitter.png"/>
+        <Rectangle x:Name="availableTwitter" HorizontalAlignment="Left" Height="126" Margin="726,488,0,0" Stroke="#FF4BB225" VerticalAlignment="Top" Width="126" StrokeThickness="2">
             <Rectangle.Effect>
                 <DropShadowEffect/>
             </Rectangle.Effect>
@@ -69,11 +69,19 @@
         <Button x:Name="buttonTwo" Content="Button Two" HorizontalAlignment="Left" Margin="290,690,0,0" VerticalAlignment="Top" Height="48" Width="140"/>
         <Button x:Name="buttonThree" Content="Button Three" HorizontalAlignment="Left" Margin="460,690,0,0" VerticalAlignment="Top" Height="48" Width="140"/>
         <Button x:Name="buttonTest" Content="Test" HorizontalAlignment="Left" Margin="843,680,0,0" VerticalAlignment="Top" Height="54" Width="156" Click="buttonTest_Click"/>
-        
-        <ListView x:Name="listViewTrending" Width="220" Height="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="921,114,0,0" SelectionChanged="listViewTrending_SelectionChanged">
+
+        <ListView x:Name="listViewTrending" Width="120" Height="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="921,114,0,0" SelectionChanged="listViewTrending_SelectionChanged">
             <ListView.View>
                 <GridView x:Name="gridViewTrending">
-                    <GridViewColumn Header="Trending" Width="220"/>
+                    <GridViewColumn Header="Trending" Width="120"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView x:Name="listViewUserTrending" Width="120" Height="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1066,114,0,0">
+            <ListView.View>
+                <GridView x:Name="gridViewUserTrending">
+                    <GridViewColumn Header="Mentions" Width="120"/>
                 </GridView>
             </ListView.View>
         </ListView>

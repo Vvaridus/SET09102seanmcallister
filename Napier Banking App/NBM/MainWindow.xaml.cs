@@ -175,6 +175,7 @@ namespace NBM
             textBoxMessageBody.Text = QuarentineURLs.replaceURLWords(textBoxMessageBody.Text, " <URL Quarentined>", textBoxHeader.Text, textBoxSender.Text);
             
             isTrending();
+            isUserTrending();
             createSirList();
 
             //export to JSON
@@ -233,6 +234,37 @@ namespace NBM
             twitterTrendingCount();
         }
 
+        //twitter trnding list
+        public void isUserTrending()
+        {
+            var text = textBoxMessageBody.Text;
+            var regex = new Regex(@"@\w+");
+            var matches = regex.Matches(text);
+
+
+            foreach (var match in matches)
+            {
+                WordCounter foundWord = wordCounters.Find(x => x.word == match.ToString());
+                if (foundWord == null)
+                {
+                    wordCounters.Add(new WordCounter(match.ToString(), 1));
+                }
+                else
+                {
+                    foundWord.frequency++;
+                }
+
+                string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                using (StreamWriter outputfile = new StreamWriter(System.IO.Path.Combine(docPath, "zzMentionsExport.txt"), true))
+                {
+                    outputfile.WriteLine(match);
+
+                }
+            }
+
+            twitterTrendingUserCount();
+        }
+
         public void twitterTrendingCount()
         {
             listViewTrending.Items.Clear();
@@ -245,7 +277,19 @@ namespace NBM
                 listViewTrending.Items.Add(rowItems[1]);
             }
         }
-        
+        public void twitterTrendingUserCount()
+        {
+            listViewUserTrending.Items.Clear();
+
+            foreach (WordCounter word in wordCounters)
+            {
+
+                String[] rowItems = new string[] { word.word, word.frequency.ToString() };
+                listViewUserTrending.Items.Add(rowItems[0]);
+                listViewUserTrending.Items.Add(rowItems[1]);
+            }
+        }
+
         public void createSirList()
         {
             var text = textBoxMessageBody.Text;
