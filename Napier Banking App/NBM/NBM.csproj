@@ -18,4 +18,10 @@
     <Resource Include="images\Twitter.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="files\textwords.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

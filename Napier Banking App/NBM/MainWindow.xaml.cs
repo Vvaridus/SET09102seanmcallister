@@ -33,7 +33,7 @@ namespace NBM
 
     public partial class MainWindow : Window
     {
-        string filePath = @"C:\Users\Vv\Desktop\Napier Banking App\NBM\files\textwords.csv";
+        string filePath = System.IO.Path.Combine(Environment.CurrentDirectory, @"files\textwords.csv");
         string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         StreamReader reader = null;
         List<string> listA = new List<string>();

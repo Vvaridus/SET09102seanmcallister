@@ -36,3 +36,4 @@ D:\SeaChainUnity\SeaChainU\SET09102seanmcallister\Napier Banking App\NBM\obj\Deb
 D:\SeaChainUnity\SeaChainU\SET09102seanmcallister\Napier Banking App\NBM\obj\Debug\netcoreapp3.1\NBM.dll
 D:\SeaChainUnity\SeaChainU\SET09102seanmcallister\Napier Banking App\NBM\obj\Debug\netcoreapp3.1\NBM.pdb
 D:\SeaChainUnity\SeaChainU\SET09102seanmcallister\Napier Banking App\NBM\obj\Debug\netcoreapp3.1\NBM.genruntimeconfig.cache
+D:\SeaChainUnity\SeaChainU\SET09102seanmcallister\Napier Banking App\NBM\bin\Debug\netcoreapp3.1\files\textwords.csv
