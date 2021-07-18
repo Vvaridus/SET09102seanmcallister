@@ -4,6 +4,7 @@ using System.Text;
 
 namespace NBM
 {
+    //Twitter #Hastags and @Mentions to count unique Tags and Mentions
     public class WordCounter
     {
         public string word { get; set; }

@@ -184,6 +184,7 @@ namespace NBM
 
         }
 
+        //Export for each message to file saved in json format.
         public static void jsonExport(string header, string sender, string subject, string mainBodyText)
         {
             var export = new JsonExport
@@ -204,7 +205,7 @@ namespace NBM
             }
         }
 
-        //twitter trnding list
+        //twitter trending list for #Hashtag use and save to file
         public void isTrending()
         {
             var text = textBoxMessageBody.Text;
@@ -235,7 +236,7 @@ namespace NBM
             twitterTrendingCount();
         }
 
-        //twitter trnding list
+        //twitter mentions list for @User use and save to file
         public void isUserTrending()
         {
             var text = textBoxMessageBody.Text;
@@ -265,7 +266,7 @@ namespace NBM
 
             twitterTrendingUserCount();
         }
-
+        //get list of trending hashtags and add and count to screen listViewTrending
         public void twitterTrendingCount()
         {
             listViewTrending.Items.Clear();
@@ -278,6 +279,7 @@ namespace NBM
                 listViewTrending.Items.Add(rowItems[1]);
             }
         }
+        //get list of user mentions and add and count to screen listViewUserTrending
         public void twitterTrendingUserCount()
         {
             listViewUserTrending.Items.Clear();
@@ -290,7 +292,7 @@ namespace NBM
                 listViewUserTrending.Items.Add(rowItemsUser[1]);
             }
         }
-
+        //Create Significant Incident Report (SIR List) and export to text file.
         public void createSirList()
         {
             var text = textBoxMessageBody.Text;
