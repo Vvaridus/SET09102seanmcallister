@@ -39,6 +39,7 @@ namespace NBM
         List<string> listA = new List<string>();
         List<string> listB = new List<string>();
         List<WordCounter> wordCounters = new List<WordCounter>();
+        List<WordCounter> wordCountersUser = new List<WordCounter>();
 
         public MainWindow()
         {
@@ -244,14 +245,14 @@ namespace NBM
 
             foreach (var match in matches)
             {
-                WordCounter foundWord = wordCounters.Find(x => x.word == match.ToString());
-                if (foundWord == null)
+                WordCounter foundWordUser = wordCountersUser.Find(x => x.word == match.ToString());
+                if (foundWordUser == null)
                 {
-                    wordCounters.Add(new WordCounter(match.ToString(), 1));
+                    wordCountersUser.Add(new WordCounter(match.ToString(), 1));
                 }
                 else
                 {
-                    foundWord.frequency++;
+                    foundWordUser.frequency++;
                 }
 
                 string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -281,12 +282,12 @@ namespace NBM
         {
             listViewUserTrending.Items.Clear();
 
-            foreach (WordCounter word in wordCounters)
+            foreach (WordCounter word in wordCountersUser)
             {
 
-                String[] rowItems = new string[] { word.word, word.frequency.ToString() };
-                listViewUserTrending.Items.Add(rowItems[0]);
-                listViewUserTrending.Items.Add(rowItems[1]);
+                String[] rowItemsUser = new string[] { word.word, word.frequency.ToString() };
+                listViewUserTrending.Items.Add(rowItemsUser[0]);
+                listViewUserTrending.Items.Add(rowItemsUser[1]);
             }
         }
 
