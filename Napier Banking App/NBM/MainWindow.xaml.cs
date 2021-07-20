@@ -307,6 +307,7 @@ namespace NBM
                 using (StreamWriter outputfile = new StreamWriter(System.IO.Path.Combine(docPath, "zzSIRList.txt"), true))
                 {
                     outputfile.WriteLine("\n"+sortCode);
+                    textBoxSIROutput.Text += "\n" + sortCode;
                 }
             }
             foreach (var nature in matchesNature)
@@ -315,6 +316,7 @@ namespace NBM
                 using (StreamWriter outputfile = new StreamWriter(System.IO.Path.Combine(docPath, "zzSIRList.txt"), true))
                 {
                     outputfile.WriteLine(nature);
+                    textBoxSIROutput.Text += "\n" + nature;
                 }
             }
         }

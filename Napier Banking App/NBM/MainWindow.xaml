@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NBM"
         mc:Ignorable="d"
-        Title="Napier Bank Messaging (NBM)" Height="800" Width="1280">
+        Title="Napier Bank Messaging (NBM)" Height="800" Width="1440">
     <Grid>
 
         <TextBox x:Name="textBoxHeader" HorizontalAlignment="Left" Margin="120,60,0,0" Text="" TextWrapping="NoWrap" VerticalAlignment="Top" Width="140" Height="26" BorderBrush="#FFE72E49" SelectionBrush="#FFA5B9C9" Background="Gainsboro" Foreground="Black" MaxLength="10" TextChanged="textBoxHeader_TextChanged">
@@ -37,7 +37,7 @@
         <TextBox x:Name="textBoxCharCount" HorizontalAlignment="Left" Margin="220,650,0,0" Text="1028" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBoxCharCount_TextChanged"/>
 
 
-        <Rectangle HorizontalAlignment="Left" Height="580" Margin="680,60,0,0" Stroke="#FFE72E49" VerticalAlignment="Top" Width="565" StrokeThickness="3">
+        <Rectangle HorizontalAlignment="Left" Height="580" Margin="680,60,0,0" Stroke="#FFE72E49" VerticalAlignment="Top" Width="700" StrokeThickness="3">
             <Rectangle.Effect>
                 <DropShadowEffect/>
             </Rectangle.Effect>
@@ -85,6 +85,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <TextBox x:Name="textBoxSIROutput" HorizontalAlignment="Left" Margin="1209,114,0,0" Text="SIR Report" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Height="500"/>
 
 
 
